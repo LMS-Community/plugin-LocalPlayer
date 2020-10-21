@@ -1,0 +1,35 @@
+
+<?xml version="1.0"?>
+<extensions>
+  <details>
+    <title lang="EN">SigGen</title>
+  </details>
+  <plugins>
+    <plugin name="LocalPlayer" version="1.6.5" minTarget="7.5" maxTarget="8.*" target="unix">
+      <title lang="EN">Local Player</title>
+      <desc  lang="EN">Local playback from your server computer using the Squeezelite software emulator.  This plugin uses Squeezelite to playback through the audio output of your server computer.  The player can be controlled from the server's web interface or other Squeezebox controller applications.  Note: the plugin will only support servers or NAS devices with Intel or ARM processors.</desc>
+      <creator>Triode</creator>
+      <email>triode1@btinternet.com</email>
+      <url>https://github.com/LMS-Community/plugin-LocalPlayer/releases/download/v1.6.5/LocalPlayer-linux-v1.6.5.zip</url>
+      <sha>cccd272fc78a76c430d0a5e53d97503a2d8a5403</sha>
+    </plugin>
+
+    <plugin name="LocalPlayer" version="1.6.5" minTarget="7.5" maxTarget="8.*" target="win">
+      <title lang="EN">Local Player</title>
+      <desc  lang="EN">Local playback from your server computer using the Squeezelite software emulator.  This plugin uses Squeezelite to playback through the audio output of your server computer.  The player can be controlled from the server's web interface or other Squeezebox controller applications.</desc>
+      <creator>Triode</creator>
+      <email>triode1@btinternet.com</email>
+      <url>https://github.com/LMS-Community/plugin-LocalPlayer/releases/download/v1.6.5/LocalPlayer-windows-v1.6.5.zip</url>
+      <sha>3f9bf6d6beac9759133a0f8dee4732acfae55f07</sha>
+    </plugin>
+
+    <plugin name="LocalPlayer" version="1.6.5" minTarget="7.5" maxTarget="8.*" target="mac">
+      <title lang="EN">Local Player</title>
+      <desc  lang="EN">Local playback from your server computer using the Squeezelite software emulator.  This plugin uses Squeezelite to playback through the audio output of your server computer.  The player can be controlled from the server's web interface or other Squeezebox controller applications.</desc>
+      <creator>Triode</creator>
+      <email>triode1@btinternet.com</email>
+      <url>https://github.com/LMS-Community/plugin-LocalPlayer/releases/download/v1.6.5/LocalPlayer-mac-v1.6.5.zip</url>
+      <sha>13be83a21cd22933d5b7357a10e41832d1fbd629</sha>
+    </plugin>
+  </plugins>
+</extensions>
