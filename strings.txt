@@ -77,8 +77,8 @@ PLUGIN_LOCALPLAYER_INFO_UNIX
 	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.<p/><p/>To maximise Squeezelite capabilty you should ensure the following libraries are installed from your linux distribution: libmad0, libflac8, libvorbisfile3 or libvorbisidec1, libfaad2.
 
 PLUGIN_LOCALPLAYER_INFO_WIN
-	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.<p/><p/>This current version supports pcm and flac playback.  It is also limited to support of Windows Vista and later.<p/><p/>If the player application is not running you may need to download and install the "Microsoft Visual C++ 2008 Redistributable Package (x86)" which is available from <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=9b2da534-3e03-4391-8a4d-074b9f2bc1bf&displaylang=en">Microsoft</a>.
+	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.
 
 PLUGIN_LOCALPLAYER_INFO_MAC
-	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.<p/><p/>This current version supports pcm and flac playback.
+	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.<p/><p/>This current version supports pcm and flac playback.  To support mp3 playback you should install the mpg123 codec for osx.  This can be installed from the <a href="http://rudix.org/">rudix</a> project (direct links: <a href="http://rudix-snowleopard.googlecode.com/files/mpg123-1.13.6-0.pkg">Snow Leopard</a>, <a href="http://rudix.googlecode.com/files/mpg123-1.13.6-0.pkg">Lion/Mountain Lion</a>).
 

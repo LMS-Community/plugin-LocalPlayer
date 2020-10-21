@@ -11,10 +11,10 @@ my $prefs = preferences('plugin.localplayer');
 my $log   = logger('plugin.localplayer');
 
 my $libs = {
-	'libfaad2.dll'  => { url => 'http://www.rarewares.org/files/aac/libfaad2-2.7.zip', 
-						 sha => 'ae4aebf21ac0df5a2220771eff62f901ca5b238e', path => 'libfaad2.dll' },
-	'libmpg123.dll' => { url => 'http://www.mpg123.de/download/win32/mpg123-1.14.4-x86.zip',
-						 sha => '35046c239bd5d596a0b43eef0ef1cb73420abc57', path => 'mpg123-1.14.4-x86/libmpg123-0.dll' }
+	'libfaad2.dll'    => { url => 'http://www.rarewares.org/files/aac/libfaad2-2.7.zip', 
+						   sha => 'ae4aebf21ac0df5a2220771eff62f901ca5b238e', path => 'libfaad2.dll' },
+	'libmpg123-0.dll' => { url => 'http://www.mpg123.de/download/win32/mpg123-1.14.4-x86.zip',
+						   sha => '35046c239bd5d596a0b43eef0ef1cb73420abc57', path => 'mpg123-1.14.4-x86/libmpg123-0.dll' }
 };
 
 my $downloading = 0;
