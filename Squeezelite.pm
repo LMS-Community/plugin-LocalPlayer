@@ -28,6 +28,8 @@ sub binaries {
 		if ($os->{'binArch'} =~ /arm/) {
 			return qw(squeezelite-armv6hf squeezelite-armv6 squeezelite-armv5te);
 		}
+		# fallback to offering all linux options for case when architecture detection does not work
+		return qw(squeezelite-x86-64 squeezelite-i386 squeezelite-armv6hf squeezelite-armv6 squeezelite-armv5te);
 	}
 	if ($os->{'os'} eq 'Darwin') {
 		return qw(squeezelite-osx-i386 squeezelite-osx);
