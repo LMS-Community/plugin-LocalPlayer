@@ -1,0 +1,47 @@
+[% PROCESS settings/header.html %]
+	[% WRAPPER setting title="PLUGIN_LOCALPLAYER_AUTORUN" desc="PLUGIN_LOCALPLAYER_AUTORUN_DESC" %]
+		<input name="autorun" type="checkbox" [% IF autorun %] checked [% END %]> [% "PLUGIN_LOCALPLAYER_RUNNING_$running" | string %] [% IF binary %] ([% binary %])[% END %]
+	[% END %]
+	[% IF autorun %]	
+	[% IF binaries.size > 1 %]
+	[% WRAPPER setting title="PLUGIN_LOCALPLAYER_BINARIES" desc="PLUGIN_LOCALPLAYER_BINARIES_DESC" %]
+		<select class="stdedit" name="bin" id="bin">
+		[% FOREACH entry IN binaries %]
+			<option [% IF entry == bin %]selected[% found = 1 %][% END %] value="[% entry %]">[% entry %]</option>
+		[% END %]
+		[% IF not found %]
+			<option selected value="">[% "PLUGIN_LOCALPLAYER_BINARIES" | string %]</option>
+		[% END %]
+		</select>
+	[% END %]
+	[% END %]
+	[% WRAPPER setting title="PLUGIN_LOCALPLAYER_OUTPUT" desc="PLUGIN_LOCALPLAYER_OUTPUT_DESC" %]
+		<select class="stdedit" name="output" id="output">
+		[% FOREACH entry IN devices %]
+			<option [% IF entry.name == output %]selected[% END %] value="[% entry.name %]">[% entry.desc %][% IF entry.name %] - [% entry.name %][% END %]</option>
+		[% END %]
+		</select>
+	[% END %]
+	[% WRAPPER setting title="PLUGIN_LOCALPLAYER_OPTIONS" desc="PLUGIN_LOCALPLAYER_OPTIONS_DESC" %]
+		<input type="text" class="stdedit" name="opts" id="opts" value="[% opts %]" size="100">
+	[% END %]
+	[% WRAPPER setting title="PLUGIN_LOCALPLAYER_DEBUG" desc="PLUGIN_LOCALPLAYER_DEBUG_DESC" %]
+		<select class="stdedit" name="debugs" id="debugs">
+		[% FOREACH entry IN [ '', 'all', 'output', 'stream', 'slimproto', 'decode' ] %]
+			<option [% IF entry == debugs %]selected[% END %] value="[% entry %]">[% "PLUGIN_LOCALPLAYER_$entry" | string %]</option>
+		[% END %]
+		</select>
+	[% END %]
+	[% WRAPPER setting title="PLUGIN_LOCALPLAYER_LOGGING" desc="PLUGIN_LOCALPLAYER_LOGGING_DESC" %]
+		<input name="logging" type="checkbox" [% IF logging %] checked [% END %]> 
+		<a href="/localplayer.log" target="log">[% "PLUGIN_LOCALPLAYER_LOGLINK" | string %]</a>
+	[% END %]
+	[% WRAPPER setting title="PLUGIN_LOCALPLAYER_LOC" desc="PLUGIN_LOCALPLAYER_LOC_DESC" %]
+		<input name="loc" type="checkbox" [% IF loc %] checked [% END %]>
+	[% END %]
+	[% END %]
+
+	[% WRAPPER setting %]
+		<div>[% "PLUGIN_LOCALPLAYER_INFO_$arch" | string %]</div>
+	[% END %]
+[% PROCESS settings/footer.html %]

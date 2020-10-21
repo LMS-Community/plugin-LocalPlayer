@@ -1,0 +1,84 @@
+PLUGIN_LOCALPLAYER
+	EN	Local Player
+
+PLUGIN_LOCALPLAYER_DESC
+	EN	Local playback on your server using the Squeezelite player (included).
+
+PLUGIN_LOCALPLAYER_AUTORUN
+	EN	Start Player With Server
+
+PLUGIN_LOCALPLAYER_AUTORUN_DESC
+	EN	Automatically start the local player instance when the server starts.
+
+PLUGIN_LOCALPLAYER_RUNNING_0
+	EN	Not Running
+
+PLUGIN_LOCALPLAYER_RUNNING_1
+	EN	Running
+
+PLUGIN_LOCALPLAYER_BINARIES
+	EN	Select Binary
+
+PLUGIN_LOCALPLAYER_BINARIES_DESC
+	EN	Select the Squeezelite binary which best matches your machine's architecture.  (This option is only needed for arm based devices where multiple options are available and autodetection is not reliable.)
+
+PLUGIN_LOCALPLAYER_OUTPUT
+	EN	Output Device
+
+PLUGIN_LOCALPLAYER_OUTPUT_DESC
+	EN	Select the ouput device to use.
+
+PLUGIN_LOCALPLAYER_OPTIONS
+	EN	Additional Options (Advanced)
+
+PLUGIN_LOCALPLAYER_OPTIONS_DESC
+	EN	Add additional Squeezelite command line options here.  See http://code.google.com/p/squeezelite/ for details.
+
+PLUGIN_LOCALPLAYER_DEBUG
+	EN	Debug Settings
+
+PLUGIN_LOCALPLAYER_DEBUG_DESC
+	EN	Specify debugging level for writing to the log file.
+
+PLUGIN_LOCALPLAYER_ALL
+	EN	All
+
+PLUGIN_LOCALPLAYER_
+	EN	None
+
+PLUGIN_LOCALPLAYER_OUTPUT
+	EN	Output device debugging
+
+PLUGIN_LOCALPLAYER_STREAM
+	EN	Stream debugging
+
+PLUGIN_LOCALPLAYER_SLIMPROTO
+	EN	Control protocol debugging (slimproto)
+
+PLUGIN_LOCALPLAYER_DECODE
+	EN	Decode debugging
+
+PLUGIN_LOCALPLAYER_LOGGING
+	EN	Enable Logging
+
+PLUGIN_LOCALPLAYER_LOGGING_DESC
+	EN	Enable logging of error and debug messages.
+
+PLUGIN_LOCALPLAYER_LOGLINK
+	EN	Log
+
+PLUGIN_LOCALPLAYER_LOC
+	EN	Direct Local File Access
+
+PLUGIN_LOCALPLAYER_LOC_DESC
+	EN	Use direct access of local files when possible.  This may reduce cpu load on slow servers when playing high bitrate files.
+
+PLUGIN_LOCALPLAYER_INFO_UNIX
+	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.<p/><p/>To maximise Squeezelite capabilty you should ensure the following libraries are installed from your linux distribution: libmad0, libflac8, libvorbisfile3 or libvorbisidec1, libfaad2.
+
+PLUGIN_LOCALPLAYER_INFO_WIN
+	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.<p/><p/>This current version supports pcm and flac playback.  It is also limited to support of Windows Vista and later.<p/><p/>If the player application is not running you may need to download and install the "Microsoft Visual C++ 2008 Redistributable Package (x86)" which is available from <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=9b2da534-3e03-4391-8a4d-074b9f2bc1bf&displaylang=en">Microsoft</a>.
+
+PLUGIN_LOCALPLAYER_INFO_MAC
+	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.<p/><p/>This current version supports pcm and flac playback.
+
