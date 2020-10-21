@@ -2,7 +2,7 @@
 <?xml version="1.0"?>
 <extensions>
   <details>
-    <title lang="EN">SigGen</title>
+    <title lang="EN">LocalPlayer</title>
   </details>
   <plugins>
     <plugin name="LocalPlayer" version="1.6.5" minTarget="7.5" maxTarget="8.*" target="unix">
