@@ -159,7 +159,7 @@ sub devices {
 				push @output, { name => $name, desc => $desc };
 			} else {
 				# Port Audio
-				$desc =~ s/ \[.*?\]//; # temp strip additional text from squeezelite 1.3
+				#$desc =~ s/ \[.*?\]//; # temp strip additional text from squeezelite 1.3
 				push @output, { name => $desc, desc => $name };
 			}
 		}
