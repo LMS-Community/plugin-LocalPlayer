@@ -14,8 +14,10 @@ my $prefs = preferences('plugin.localplayer');
 sub canDirectStreamSong {
 	my ($class, $client, $song) = @_;
 
-	# local player only for players supporting 'loc' and non sync, non seek case
-	if ($prefs->get('loc') && $client->can('myFormats') && $client->myFormats->[-1] eq 'loc' && !$client->isSynced && !$song->seekdata) {
+	# local player only for players supporting 'loc' and non sync, non seek case, non virtual track (from CUE sheet)
+	if ($prefs->get('loc') && $client->can('myFormats') && $client->myFormats->[-1] eq 'loc' &&
+			!$client->isSynced && !$song->seekdata && !$song->track->virtual) {
+
 		return "file://127.0.0.1:3483/" . $song->track->url;
 	}
 
