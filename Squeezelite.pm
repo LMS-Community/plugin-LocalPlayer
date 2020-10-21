@@ -81,8 +81,6 @@ sub start {
 		$logging = 1;
 	}
 
-	push @params, ("-n", Slim::Utils::Strings::string('PLUGIN_LOCALPLAYER'));
-
 	if ($prefs->get('opts') ne '') {
 		push @params, split(/\s+/, $prefs->get('opts'));
 	}
