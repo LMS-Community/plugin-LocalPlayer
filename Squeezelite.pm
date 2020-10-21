@@ -30,7 +30,7 @@ sub binaries {
 		}
 	}
 	if ($os->{'os'} eq 'Darwin') {
-		return qw(squeezelite-osx);
+		return qw(squeezelite-osx-i386 squeezelite-osx);
 	}
 	if ($os->{'os'} eq 'Windows') {
 		return qw(squeezelite-win);
@@ -54,7 +54,7 @@ sub bin {
 		}
 	}
 
-	return undef;
+	return $binaries[0] =~ /squeezelite-osx/ ? $binaries[0] : undef;
 }
 
 sub start {
