@@ -14,29 +14,49 @@ my $log   = logger('plugin.localplayer');
 
 my $squeezelite;
 my $binary;
+my @binaries;
 
 sub binaries {
+	my ($class, $update) = @_;
+
+	return @binaries if !$update && scalar @binaries;
+
 	my $os = Slim::Utils::OSDetect::details();
 
-	if ($os->{'os'} eq 'Linux') {
+	if (main::ISMAC) {
+		@binaries = qw(squeezelite-osx squeezelite-arm64);
+		@binaries = reverse @binaries if $os->{'osArch'} eq 'arm64';
+	}
+	elsif (main::ISWINDOWS) {
+		@binaries = qw(squeezelite-win);
+	}
+	elsif ($os->{'os'} eq 'Linux') {
 		if ($os->{'osArch'} =~ /x86_64/) {
-			return qw(squeezelite-x86-64);
+			@binaries = qw(squeezelite-x86-64);
 		}
 		if ($os->{'binArch'} =~ /i386/) {
-			return qw(squeezelite-i386);
+			@binaries = qw(squeezelite-i386);
 		}
 		if ($os->{'binArch'} =~ /arm/) {
-			return qw(squeezelite-armv6hf squeezelite-armv6 squeezelite-armv5te);
+			@binaries = qw(squeezelite-armhf squeezelite-aarch64);
 		}
-		# fallback to offering all linux options for case when architecture detection does not work
-		return qw(squeezelite-x86-64 squeezelite-i386 squeezelite-armv6hf squeezelite-armv6 squeezelite-armv5te);
+		else {
+			# fallback to offering all linux options for case when architecture detection does not work
+			@binaries = qw(squeezelite-x86-64 squeezelite-i386 squeezelite-armhf squeezelite-aarch64);
+		}
 	}
-	if ($os->{'os'} eq 'Darwin') {
-		return qw(squeezelite-osx-i386 squeezelite-osx);
-	}
-	if ($os->{'os'} eq 'Windows') {
-		return qw(squeezelite-win);
-	}
+
+	@binaries = grep {
+		my $binPath = Slim::Utils::Misc::findbin($_) || do {
+			$log->warn("$_ not found");
+			next;
+		};
+
+		my $devices = __PACKAGE__->devices($binPath) || [];
+		scalar @$devices;
+	} @binaries;
+
+	return @binaries;
 }
 
 sub bin {
@@ -93,7 +113,7 @@ sub start {
 	};
 
 	my $path = Slim::Utils::OSDetect::getOS->decodeExternalHelperPath($path);
-		
+
 	if (!-e $path) {
 		$log->debug("$bin not executable");
 		return;
@@ -106,7 +126,7 @@ sub start {
 		print $fh "\nStarting Squeezelite: $path @params\n";
 		close $fh;
 	}
-	
+
 	eval { $squeezelite = Proc::Background->new({ 'die_upon_destroy' => 1 }, $path, @params); };
 
 	if ($@) {
@@ -144,11 +164,13 @@ sub restart {
 }
 
 sub devices {
-	return unless $binary;
+	my ($class, $myBinary) = @_;
+
+	$myBinary ||= $binary;
+	return [] unless $myBinary && -e $myBinary;
 
 	# run "squeezelite -l" to get devices and parse result
-	my $query = "$binary -l";
-	my @devices = `$query`;
+	my @devices = `$myBinary -l`;
 
 	my @output;
 
@@ -180,7 +202,7 @@ sub logHandler {
 
 	my $body = '';
 	my $file = File::ReadBackwards->new(logFile());
-	
+
 	if ($file){
 
 		my @lines;
@@ -192,7 +214,7 @@ sub logHandler {
 
 		$body .= join('', @lines);
 
-		$file->close();			
+		$file->close();
 	};
 
 	return \$body;

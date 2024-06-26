@@ -9,23 +9,26 @@ use Slim::Utils::Log;
 
 my $prefs = preferences('plugin.localplayer');
 
-$prefs->init({ autorun => 1, output => '', opts => '', debugs => '', logging => 0, loc => 1, bin => undef });
+$prefs->init({
+	autorun => 1,
+	output => '',
+	opts => '-s 127.0.0.1',
+	debugs => '',
+	logging => 0,
+	loc => 0,
+	bin => undef
+});
 
 my $log = Slim::Utils::Log->addLogCategory({
 	'category'     => 'plugin.localplayer',
 	'defaultLevel' => 'WARN',
 	'description'  => Slim::Utils::Strings::string('PLUGIN_LOCALPLAYER'),
-}); 
+});
 
 sub initPlugin {
 	my $class = shift;
 
 	$class->SUPER::initPlugin(@_);
-
-	if (Slim::Utils::OSDetect::OS() =~ /win/) {
-		require Plugins::LocalPlayer::DownloadLibs;
-		Plugins::LocalPlayer::DownloadLibs->checkLibs($class);
-	}
 
 	if ($prefs->get('loc')) {
 		require Plugins::LocalPlayer::LocalFile;
@@ -36,8 +39,8 @@ sub initPlugin {
 		require Plugins::LocalPlayer::Squeezelite;
 		Plugins::LocalPlayer::Squeezelite->start;
 	}
-	
-	if (!$::noweb) {
+
+	if (main::WEBUI) {
 		require Plugins::LocalPlayer::Settings;
 		Plugins::LocalPlayer::Settings->new;
 		Slim::Web::Pages->addPageFunction("^localplayer.log", \&Plugins::LocalPlayer::Squeezelite::logHandler);

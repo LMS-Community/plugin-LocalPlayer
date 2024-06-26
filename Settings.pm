@@ -24,25 +24,25 @@ sub handler {
 		my @other = $params->{'autorun'} && !$prefs->get('autorun') ? () : qw(output bin debugs opts);
 
 		for my $param (@bool) {
-			
+
 			my $val = $params->{ $param } ? 1 : 0;
-			
+
 			if ($val != $prefs->get($param)) {
-					
+
 				$prefs->set($param, $val);
 				$update = 1 unless $param eq 'loc';
-				
+
 				if ($param eq 'autorun') {
 					require Plugins::LocalPlayer::Squeezelite;
 				}
-				
+
 				if ($param eq 'loc' && $params->{ $param }) {
 					require Plugins::LocalPlayer::LocalFile;
 					Slim::Player::ProtocolHandlers->registerHandler('file', 'Plugins::LocalPlayer::LocalFile');
 				}
 			}
 		}
-			
+
 		for my $param (@other) {
 			if ($params->{ $param } ne $prefs->get($param)) {
 				$prefs->set($param, $params->{ $param });
@@ -56,12 +56,12 @@ sub handler {
 		$prefs->get('autorun') ? Plugins::LocalPlayer::Squeezelite->restart : Plugins::LocalPlayer::Squeezelite->stop;
 
 		Slim::Utils::Timers::setTimer($class, Time::HiRes::time() + 1, sub {
-			$class->handler2( $client, $params, $callback, @args);		  
+			$class->handler2( $client, $params, $callback, @args);
 		});
 
 	} else {
 
-		$class->handler2( $client, $params, $callback, @args);		  
+		$class->handler2( $client, $params, $callback, @args);
 	}
 
 	return undef;
@@ -73,11 +73,11 @@ sub handler2 {
 	if ($prefs->get('autorun')) {
 
 		$params->{'binary'}   = Plugins::LocalPlayer::Squeezelite->bin;
-		$params->{'binaries'} = [ Plugins::LocalPlayer::Squeezelite->binaries ];
+		$params->{'binaries'} = [ Plugins::LocalPlayer::Squeezelite->binaries('update') ];
 		$params->{'running'}  = Plugins::LocalPlayer::Squeezelite->alive;
 
 		my $devices = Plugins::LocalPlayer::Squeezelite->devices;
-		
+
 		unshift @$devices, { name => '', desc => "Default" };
 
 		$params->{'devices'} = $devices;
