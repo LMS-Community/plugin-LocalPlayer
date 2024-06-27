@@ -20,7 +20,7 @@ PLUGIN_LOCALPLAYER_BINARIES
 	EN	Select Binary
 
 PLUGIN_LOCALPLAYER_BINARIES_DESC
-	EN	Select the Squeezelite binary which best matches your machine's architecture.  (This option is only needed for arm based devices where multiple options are available and autodetection is not reliable.)
+	EN	Select the Squeezelite binary which best matches your machine's architecture (if multiple version are available).
 
 PLUGIN_LOCALPLAYER_OUTPUT
 	EN	Output Device
@@ -32,7 +32,7 @@ PLUGIN_LOCALPLAYER_OPTIONS
 	EN	Additional Options (Advanced)
 
 PLUGIN_LOCALPLAYER_OPTIONS_DESC
-	EN	Add additional Squeezelite command line options here.  See http://code.google.com/p/squeezelite/ for details.
+	EN	Add additional Squeezelite command line options here.  See <a href="https://ralph-irving.github.io/squeezelite.html" target="_blank">https://ralph-irving.github.io/squeezelite.html</a> for details.
 
 PLUGIN_LOCALPLAYER_DEBUG
 	EN	Debug Settings
@@ -45,6 +45,9 @@ PLUGIN_LOCALPLAYER_ALL
 
 PLUGIN_LOCALPLAYER_
 	EN	None
+
+PLUGIN_LOCALPLAYER_NO_BINARY_FOUND
+	EN	No squeezelite binary compatible with your system was found. If you think this is wrong, then please join us on <a href="https://forums.slimdevices.com" target="_blank">forums.slimdevices.com</a>.
 
 PLUGIN_LOCALPLAYER_STREAM
 	EN	Stream debugging
@@ -70,12 +73,6 @@ PLUGIN_LOCALPLAYER_LOC
 PLUGIN_LOCALPLAYER_LOC_DESC
 	EN	Use direct access of local files when possible.  This may reduce cpu load on slow servers when playing high bitrate files.
 
-PLUGIN_LOCALPLAYER_INFO_UNIX
-	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.<p/><p/>To maximise Squeezelite capabilty you should ensure the following libraries are installed from your linux distribution: libmad0, libflac8, libvorbisfile3 or libvorbisidec1, libfaad2.
-
-PLUGIN_LOCALPLAYER_INFO_WIN
+PLUGIN_LOCALPLAYER_INFO
 	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.
-
-PLUGIN_LOCALPLAYER_INFO_MAC
-	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.<p/><p/>This current version supports pcm and flac playback.  To support mp3 playback you should install the mpg123 codec for osx.  This can be installed from the <a href="http://rudix.org/">rudix</a> project (direct links: <a href="http://rudix-snowleopard.googlecode.com/files/mpg123-1.13.6-0.pkg">Snow Leopard</a>, <a href="http://rudix.googlecode.com/files/mpg123-1.13.6-0.pkg">Lion/Mountain Lion</a>).
 

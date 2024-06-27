@@ -15,7 +15,7 @@ $prefs->init({
 	opts => '-s 127.0.0.1',
 	debugs => '',
 	logging => 0,
-	loc => 0,
+	loc => 1,
 	bin => undef
 });
 

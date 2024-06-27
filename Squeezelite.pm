@@ -47,13 +47,15 @@ sub binaries {
 	}
 
 	@binaries = grep {
-		my $binPath = Slim::Utils::Misc::findbin($_) || do {
-			$log->warn("$_ not found");
-			next;
+		my $devices;
+
+		if (my $binPath = Slim::Utils::Misc::findbin($_)) {
+			$devices = __PACKAGE__->devices($binPath);
+		} else {
+			$log->warn("$_ not found or not compatible");
 		};
 
-		my $devices = __PACKAGE__->devices($binPath) || [];
-		scalar @$devices;
+		scalar @{$devices || []};
 	} @binaries;
 
 	return @binaries;
@@ -172,6 +174,9 @@ sub devices {
 	# run "squeezelite -l" to get devices and parse result
 	my @devices = `$myBinary -l`;
 
+	main::INFOLOG && $log->is_info && $log->info("Getting devices for $myBinary");
+	main::DEBUGLOG && $log->is_debug && $log->debug(@devices);
+
 	my @output;
 
 	for my $line (@devices) {
@@ -195,7 +200,12 @@ sub logFile {
 }
 
 sub logHandler {
-	my ($client, $params, undef, undef, $response) = @_;
+	my ($client, $params, undef, $httpClient, $response) = @_;
+
+	# LMS9 supports the file viewer with refresh, download, filtering etc.
+	if ( Slim::Web::Pages::Common->can('logFileViewer') ) {
+		return Slim::Web::Pages::Common->logFileViewer($client, $params, $httpClient, $response, logFile());
+	}
 
 	$response->header("Refresh" => "10; url=" . $params->{path} . ($params->{lines} ? '?lines=' . $params->{lines} : ''));
 	$response->header("Content-Type" => "text/plain; charset=utf-8");
