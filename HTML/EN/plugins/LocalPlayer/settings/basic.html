@@ -50,7 +50,11 @@
 		[% END %]
 	[% END %]
 
-	[% WRAPPER setting %]
-		<div>[% "PLUGIN_LOCALPLAYER_INFO" | string %]</div>
+	[% WRAPPER setting title="" desc="" %]
+		[% IF isPCP %]
+			<div style="color: red">[% "PLUGIN_LOCALPLAYER_PCP_DETECTED" | string %]</div>
+		[% END %]
+
+	<div>[% "PLUGIN_LOCALPLAYER_INFO" | string %]</div>
 	[% END %]
 [% PROCESS settings/footer.html %]

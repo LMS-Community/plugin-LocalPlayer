@@ -91,6 +91,7 @@ sub handler2 {
 		$params->{ $param } = $prefs->get($param);
 	}
 
+	$params->{'isPCP'} = Plugins::LocalPlayer::Plugin::isPCP();
 	$params->{'arch'} = Slim::Utils::OSDetect::OS();
 
 	$callback->($client, $params, $class->SUPER::handler($client, $params), @args);

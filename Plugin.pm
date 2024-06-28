@@ -45,6 +45,17 @@ sub initPlugin {
 		Plugins::LocalPlayer::Settings->new;
 		Slim::Web::Pages->addPageFunction("^localplayer.log", \&Plugins::LocalPlayer::Squeezelite::logHandler);
 	}
+
+	isPCP();
+}
+
+my $pcpWarning;
+sub isPCP {
+	return $pcpWarning if defined $pcpWarning;
+
+	my $osDetails = Slim::Utils::OSDetect::details();
+	$pcpWarning = lc($osDetails->{osName} || '') eq 'picore' ? 1 : 0;
+	$pcpWarning && $log->error(Slim::Utils::Strings::string('PLUGIN_LOCALPLAYER_PCP_DETECTED'));
 }
 
 sub shutdownPlugin {

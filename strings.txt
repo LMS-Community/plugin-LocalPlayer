@@ -100,3 +100,6 @@ PLUGIN_LOCALPLAYER_INFO
 	DE	Der Local Player verwendet den Squeezelite-Softwareplayer, der als Teil des Plugins installiert wird. Sie können ihn über die Server-Web-Oberfläche oder jede andere Squeezebox-Steuerungsanwendung bedienen.
 	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.
 
+PLUGIN_LOCALPLAYER_PCP_DETECTED
+	DE	piCorePlayer erkannt - bitte verwenden Sie an Stelle dieses Plugins piCorePlayers Werkzeuge, um Squeezelite zu konfigurieren.
+	EN	piCorePlayer detected - please use pCP's tools to configure squeezelite rather than this plugin.
