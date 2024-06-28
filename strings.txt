@@ -4,102 +4,153 @@ PLUGIN_LOCALPLAYER
 PLUGIN_LOCALPLAYER_DESC
 	DE	Lokale Wiedergabe auf dem Rechner, auf dem LMS läuft, mit Hilfe von Squeezelite.
 	EN	Local playback on your server using the Squeezelite player (included).
+	FR	Lecture locale sur votre serveur en utilisant le lecteur Squeezelite (inclus).
+	NL	Lokale weergave op uw server met behulp van de Squeezelite speler (inbegrepen).
 
 PLUGIN_LOCALPLAYER_AUTORUN
 	DE	Player mit dem Server starten
 	EN	Start Player with Server
+	FR	Démarrer le Lecteur avec le Serveur
+	NL	Start Speler met Server
 
 PLUGIN_LOCALPLAYER_AUTORUN_DESC
 	DE	Den Player automatisch starten, wenn der Server gestartet wird.
 	EN	Automatically start the local player instance when the server starts.
+	FR	Démarrer automatiquement l'instance du lecteur local lorsque le serveur démarre.
+	NL	Start automatisch de lokale spelerinstantie wanneer de server start.
 
 PLUGIN_LOCALPLAYER_RUNNING_0
 	DE	Läuft nicht
 	EN	Not Running
+	FR	Non Démarré
+	NL	Niet Actief
 
 PLUGIN_LOCALPLAYER_RUNNING_1
 	DE	Läuft
 	EN	Running
+	FR	Démarré
+	NL	Actief
 
 PLUGIN_LOCALPLAYER_BINARIES
 	DE	Squeezelite-Binärdatei auswählen
 	EN	Select Binary
+	FR	Sélectionner le Binaire
+	NL	Selecteer Binaire Bestand
 
 PLUGIN_LOCALPLAYER_BINARIES_DESC
 	DE	Wählen Sie die Squeezelite-Binärdatei aus, die am besten zur Architektur Ihres Geräts passt (falls mehrere Versionen verfügbar sind).
 	EN	Select the Squeezelite binary which best matches your machine's architecture (if multiple version are available).
+	FR	Sélectionnez le binaire Squeezelite qui correspond le mieux à l'architecture de votre machine (si plusieurs versions sont disponibles).
+	NL	Selecteer het Squeezelite binaire bestand dat het beste past bij de architectuur van uw machine (indien meerdere versies beschikbaar zijn).
 
 PLUGIN_LOCALPLAYER_OUTPUT
 	DE	Ausgabegerät
 	EN	Output Device
+	FR	Périphérique de Sortie
+	NL	Uitvoerapparaat
 
 PLUGIN_LOCALPLAYER_OUTPUT_DESC
 	DE	Wählen Sie das Gerät, das für die Ausgabe verwendet werden soll.
 	EN	Select the ouput device to use.
+	FR	Sélectionnez le périphérique de sortie à utiliser.
+	NL	Selecteer het uitvoerapparaat dat u wilt gebruiken.
 
 PLUGIN_LOCALPLAYER_OPTIONS
 	DE	Zusätzliche Einstellungen (fortgeschritten)
 	EN	Additional Options (Advanced)
+	FR	Options Supplémentaires (Avancé)
+	NL	Extra Opties (Geavanceerd)
 
 PLUGIN_LOCALPLAYER_OPTIONS_DESC
 	DE	Ergänzen Sie weitere Squeezelite Befehlszeilenparameter. Siehe <a href="https://ralph-irving.github.io/squeezelite.html" target="_blank">https://ralph-irving.github.io/squeezelite.html</a> für Details.
 	EN	Add additional Squeezelite command line options here.  See <a href="https://ralph-irving.github.io/squeezelite.html" target="_blank">https://ralph-irving.github.io/squeezelite.html</a> for details.
+	FR	Ajoutez ici des options supplémentaires de ligne de commande Squeezelite. Voir <a href="https://ralph-irving.github.io/squeezelite.html" target="_blank">https://ralph-irving.github.io/squeezelite.html</a> pour les détails.
+	NL	Voeg hier extra Squeezelite commandoregelopties toe. Zie <a href="https://ralph-irving.github.io/squeezelite.html" target="_blank">https://ralph-irving.github.io/squeezelite.html</a> voor details.
 
 PLUGIN_LOCALPLAYER_DEBUG
 	DE	Debug-Einstellungen
 	EN	Debug Settings
+	FR	Paramètres de Débogage
+	NL	Debug Instellingen
 
 PLUGIN_LOCALPLAYER_DEBUG_DESC
 	DE	Definieren Sie, wieviele Details in die Logdatei geschrieben werden sollen.
 	EN	Specify debugging level for writing to the log file.
+	FR	Specifiez le niveau de débogage pour l'écriture dans le fichier journal.
+	NL	Specificeer het debugniveau voor het schrijven naar het logbestand.
 
 PLUGIN_LOCALPLAYER_ALL
 	DE	Alle
 	EN	All
+	FR	Tous
+	NL	Alles
 
 PLUGIN_LOCALPLAYER_
 	DE	Nichts
 	EN	None
+	FR	Aucun
+	NL	Geen
 
 PLUGIN_LOCALPLAYER_NO_BINARY_FOUND
 	DE	Es wurde keine mit Ihrem System kompatible Squeezelite-Binärdatei gefunden. Wenn Sie denken, dass dies ein Fehler ist, dann besuchen Sie uns bitte auf <a href="https://forums.slimdevices.com" target="_blank">forums.slimdevices.com</a>.
-	EN	No squeezelite binary compatible with your system was found. If you think this is wrong, then please join us on <a href="https://forums.slimdevices.com" target="_blank">forums.slimdevices.com</a>.
+	EN	No Squeezelite binary compatible with your system was found. If you think this is an error, please visit us at <a href="https://forums.slimdevices.com" target="_blank">forums.slimdevices.com</a>.
+	FR	Aucun binaire Squeezelite compatible avec votre système n'a été trouvé. Si vous pensez que c'est une erreur, veuillez nous rendre visite sur <a href="https://forums.slimdevices.com" target="_blank">forums.slimdevices.com</a>.
+	NL	Geen Squeezelite binaire bestand compatibel met uw systeem gevonden. Als u denkt dat dit een fout is, bezoek ons dan op <a href="https://forums.slimdevices.com" target="_blank">forums.slimdevices.com</a>.
 
 PLUGIN_LOCALPLAYER_STREAM
 	DE	Streaming
 	EN	Stream debugging
+	FR	Débogage de flux
+	NL	Stream debugging
 
 PLUGIN_LOCALPLAYER_SLIMPROTO
 	DE	SlimProto Protokoll
 	EN	Control protocol debugging (slimproto)
+	FR	Débogage du protocole de contrôle (slimproto)
+	NL	Debugging van besturingsprotocol (slimproto)
 
 PLUGIN_LOCALPLAYER_DECODE
 	DE	Dekodierung
 	EN	Decode debugging
+	FR	Débogage de décodage
+	NL	Decodeer debugging
 
 PLUGIN_LOCALPLAYER_LOGGING
 	DE	Logging aktivieren
 	EN	Enable Logging
+	FR	Activer la journalisation
+	NL	Logging Inschakelen
 
 PLUGIN_LOCALPLAYER_LOGGING_DESC
 	DE	Logging von Fehlern aktivieren
 	EN	Enable logging of error and debug messages.
+	FR	Activer la journalisation des messages d'erreur et de débogage.
+	NL	Logging van fout- en debugberichten inschakelen.
 
 PLUGIN_LOCALPLAYER_LOGLINK
 	EN	Log
+	FR	Journal
 
 PLUGIN_LOCALPLAYER_LOC
 	DE	Direkter Dateizugriff
 	EN	Direct Local File Access
+	FR	Accès direct aux fichiers locaux
+	NL	Directe Lokale Bestandstoegang
 
 PLUGIN_LOCALPLAYER_LOC_DESC
 	DE	Wenn möglich direkten Zugriff auf lokale Dateien verwenden. Dies kann die CPU-Belastung auf langsamen Servern beim Abspielen von Dateien mit hoher Bitrate reduzieren.
 	EN	Use direct access of local files when possible.  This may reduce cpu load on slow servers when playing high bitrate files.
+	FR	Utiliser l'accès direct aux fichiers locaux lorsque c'est possible. Cela peut réduire la charge CPU sur les serveurs lents lors de la lecture de fichiers à haut débit.
+	NL	Gebruik indien mogelijk directe toegang tot lokale bestanden. Dit kan de CPU-belasting op trage servers verminderen bij het afspelen van bestanden met een hoge bitrate.
 
 PLUGIN_LOCALPLAYER_INFO
 	DE	Der Local Player verwendet den Squeezelite-Softwareplayer, der als Teil des Plugins installiert wird. Sie können ihn über die Server-Web-Oberfläche oder jede andere Squeezebox-Steuerungsanwendung bedienen.
 	EN	Local Player uses the Squeezelite software player which is installed as part of the plugin.  You can control it from the server web interface or any other Squeezebox control application.
+	FR	Le Local Player utilise le lecteur logiciel Squeezelite qui est installé dans le cadre du plugin. Vous pouvez le contrôler depuis l'interface web du serveur ou toute autre application de contrôle Squeezebox.
+	NL	Local Player gebruikt de Squeezelite software speler die als onderdeel van de plugin wordt geïnstalleerd. U kunt het bedienen vanuit de server webinterface of elke andere Squeezebox-bedieningsapplicatie.
 
 PLUGIN_LOCALPLAYER_PCP_DETECTED
 	DE	piCorePlayer erkannt - bitte verwenden Sie an Stelle dieses Plugins piCorePlayers Werkzeuge, um Squeezelite zu konfigurieren.
 	EN	piCorePlayer detected - please use pCP's tools to configure squeezelite rather than this plugin.
+	FR	piCorePlayer détecté - veuillez utiliser les outils de pCP pour configurer Squeezelite plutôt que ce plugin.
+	NL	piCorePlayer gedetecteerd - gebruik alstublieft pCP's tools om squeezelite te configureren in plaats van deze plugin.
