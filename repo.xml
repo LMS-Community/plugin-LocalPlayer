@@ -4,13 +4,13 @@
     <title lang="EN">LocalPlayer</title>
   </details>
   <plugins>
-    <plugin version="1.7.1" name="LocalPlayer" maxTarget="*" minTarget="8.5">
+    <plugin name="LocalPlayer" maxTarget="*" minTarget="8.5" version="1.7.2">
       <creator>Triode</creator>
-      <url>https://github.com/LMS-Community/plugin-LocalPlayer/releases/download/1.7.1/LocalPlayer.zip</url>
+      <url>https://github.com/LMS-Community/plugin-LocalPlayer/releases/download/1.7.2/LocalPlayer.zip</url>
       <title lang="EN">Local Player</title>
-      <desc lang="EN">Local playback from your server computer using the Squeezelite software emulator.  This plugin uses Squeezelite to playback through the audio output of your server computer.  The player can be controlled from the server's web interface or other Squeezebox controller applications.  Note: the plugin will only support servers or NAS devices with Intel or ARM processors.</desc>
+      <sha>f1ec93d2cc152f3eae663b2aa7f89629b54ec475</sha>
       <email>triode1@btinternet.com</email>
-      <sha>7861b2447a8d5762f76476af269ecdb08bfe73a6</sha>
+      <desc lang="EN">Local playback from your server computer using the Squeezelite software emulator.  This plugin uses Squeezelite to playback through the audio output of your server computer.  The player can be controlled from the server's web interface or other Squeezebox controller applications.  Note: the plugin will only support servers or NAS devices with Intel or ARM processors.</desc>
     </plugin>
   </plugins>
 </extensions>
