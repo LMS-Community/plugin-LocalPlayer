@@ -91,6 +91,8 @@ sub handler2 {
 		$params->{ $param } = $prefs->get($param);
 	}
 
+	my $osDetails = Slim::Utils::OSDetect::details();
+	$params->{'isDocker'} = $osDetails->{osName} =~ /Docker/ ? 1 : 0;
 	$params->{'isPCP'} = Plugins::LocalPlayer::Plugin::isPCP();
 	$params->{'arch'} = Slim::Utils::OSDetect::OS();
 

@@ -3,7 +3,7 @@
 <extension>
 	<name>PLUGIN_LOCALPLAYER</name>
 	<module>Plugins::LocalPlayer::Plugin</module>
-	<version>1.7.0</version>
+	<version>1.7.1</version>
 	<defaultState>enabled</defaultState>
 	<description>PLUGIN_LOCALPLAYER_DESC</description>
 	<category>hardware</category>

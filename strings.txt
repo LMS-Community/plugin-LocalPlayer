@@ -149,6 +149,12 @@ PLUGIN_LOCALPLAYER_INFO
 	FR	Le Local Player utilise le lecteur logiciel Squeezelite qui est installé dans le cadre du plugin. Vous pouvez le contrôler depuis l'interface web du serveur ou toute autre application de contrôle Squeezebox.
 	NL	Local Player gebruikt de Squeezelite software speler die als onderdeel van de plugin wordt geïnstalleerd. U kunt het bedienen vanuit de server webinterface of elke andere Squeezebox-bedieningsapplicatie.
 
+PLUGIN_LOCALPLAYER_DOCKER_NO_DEVICE
+	FR	Vous semblez exécuter LMS dans Docker, et aucun périphérique audio n'est trouvé. Vous devrez peut-être le mapper sur l'hôte en ajoutant "<code>--device /dev/snd:/dev/snd</code>" aux paramètres de démarrage du conteneur.
+	DE	Sie scheinen LMS in Docker auszuführen, und es wird kein Audiogerät gefunden. Möglicherweise müssen Sie es auf dem Host zuordnen, indem Sie "<code>--device /dev/snd:/dev/snd</code>" zu den Startparametern des Containers hinzufügen.
+	EN	You seem to be running LMS in Docker, and no audio device is found. You might have to map it on the host by adding "<code>--device /dev/snd:/dev/snd</code>" to the container's startup parameters.
+	NL	U lijkt LMS in Docker te draaien en er wordt geen audio-apparaat gevonden. Mogelijk moet u het in kaart brengen op de host door "<code>--device /dev/snd:/dev/snd</code>" toe te voegen aan de startparameters van de container.
+
 PLUGIN_LOCALPLAYER_PCP_DETECTED
 	DE	piCorePlayer erkannt - bitte verwenden Sie an Stelle dieses Plugins piCorePlayers Werkzeuge, um Squeezelite zu konfigurieren.
 	EN	piCorePlayer detected - please use pCP's tools to configure squeezelite rather than this plugin.

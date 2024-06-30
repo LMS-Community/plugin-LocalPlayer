@@ -21,6 +21,9 @@
 					<option [% IF entry.name == output %]selected[% END %] value="[% entry.name | html %]">[% entry.desc | html %][% IF entry.name %] - [% entry.name | html %][% END %]</option>
 				[% END %]
 				</select>
+				[% IF isDocker && devices.size < 2 %]
+					<div style="color: red">[% "PLUGIN_LOCALPLAYER_DOCKER_NO_DEVICE" | string %]</div>
+				[% END %]
 			[% END %]
 
 			[% WRAPPER setting title="PLUGIN_LOCALPLAYER_OPTIONS" desc="PLUGIN_LOCALPLAYER_OPTIONS_DESC" %]
