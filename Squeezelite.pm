@@ -28,7 +28,7 @@ sub binaries {
 		@binaries = reverse @binaries if $os->{'osArch'} eq 'arm64';
 	}
 	elsif (main::ISWINDOWS) {
-		@binaries = qw(squeezelite-win);
+		@binaries = qw(squeezelite-x64 squeezelite-win);
 	}
 	elsif ($os->{'os'} eq 'Linux') {
 		if ($os->{'osArch'} =~ /x86_64/) {
