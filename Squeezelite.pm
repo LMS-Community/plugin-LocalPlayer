@@ -78,7 +78,7 @@ sub bin {
 		}
 	}
 
-	return $binaries[0] =~ /squeezelite-osx/ ? $binaries[0] : undef;
+	return $binaries[0];
 }
 
 sub start {

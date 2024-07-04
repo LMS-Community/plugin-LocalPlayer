@@ -28,7 +28,11 @@
 
 			[% WRAPPER setting title="PLUGIN_LOCALPLAYER_OPTIONS" desc="PLUGIN_LOCALPLAYER_OPTIONS_DESC" %]
 				<input type="text" class="stdedit" name="opts" id="opts" value="[% opts %]" size="100">
-			[% END %]
+				[% IF optionsTable %]
+					<div><br/>[% "PLUGIN_LOCALPLAYER_POPULAR_OPTIONS" | string %]</div>
+					<pre>[% optionsTable | html -%]</pre>
+				[% END %]
+			[%- END -%]
 
 			[% WRAPPER setting title="PLUGIN_LOCALPLAYER_DEBUG" desc="PLUGIN_LOCALPLAYER_DEBUG_DESC" %]
 				<select class="stdedit" name="debugs" id="debugs">

@@ -61,6 +61,12 @@ PLUGIN_LOCALPLAYER_OPTIONS
 	FR	Options Supplémentaires (Avancé)
 	NL	Extra Opties (Geavanceerd)
 
+PLUGIN_LOCALPLAYER_POPULAR_OPTIONS
+	FR	Quelques options populaires :
+	DE	Populäre Einstellungen:
+	EN	Some popular options:
+	NL	Een paar populaire opties:
+
 PLUGIN_LOCALPLAYER_OPTIONS_DESC
 	DE	Ergänzen Sie weitere Squeezelite Befehlszeilenparameter. Siehe <a href="https://ralph-irving.github.io/squeezelite.html" target="_blank">https://ralph-irving.github.io/squeezelite.html</a> für Details.
 	EN	Add additional Squeezelite command line options here.  See <a href="https://ralph-irving.github.io/squeezelite.html" target="_blank">https://ralph-irving.github.io/squeezelite.html</a> for details.

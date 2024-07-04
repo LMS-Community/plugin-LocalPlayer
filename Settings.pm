@@ -72,9 +72,19 @@ sub handler2 {
 
 	if ($prefs->get('autorun')) {
 
-		$params->{'binary'}   = Plugins::LocalPlayer::Squeezelite->bin;
+		my $bin = Plugins::LocalPlayer::Squeezelite->bin;
+		$params->{'binary'}   = $bin;
 		$params->{'binaries'} = [ Plugins::LocalPlayer::Squeezelite->binaries('update') ];
 		$params->{'running'}  = Plugins::LocalPlayer::Squeezelite->alive;
+
+		if (my $path = Slim::Utils::Misc::findbin($bin)) {
+			if (my $options = `$path -?`) {
+				# extract descriptions for server address, name, and MAC address
+				while ($options =~ /(^\s+-[smn]\s+.+\n)/mg) {
+					$params->{'optionsTable'} .= $1;
+				}
+			}
+		}
 
 		my $devices = Plugins::LocalPlayer::Squeezelite->devices;
 
