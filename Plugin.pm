@@ -10,7 +10,7 @@ use Slim::Utils::Log;
 my $prefs = preferences('plugin.localplayer');
 
 $prefs->init({
-	autorun => 1,
+	autorun => sub { lc(Slim::Utils::OSDetect::details()->{osName} || '') eq 'picore' ? 0 : 1 },
 	output => '',
 	opts => '-s 127.0.0.1',
 	debugs => '',
