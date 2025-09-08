@@ -77,7 +77,8 @@ sub handler2 {
 		$params->{'binaries'} = [ Plugins::LocalPlayer::Squeezelite->binaries('update') ];
 		$params->{'running'}  = Plugins::LocalPlayer::Squeezelite->alive;
 
-		if (my $path = Slim::Utils::Misc::findbin($bin)) {
+		my $path = Slim::Utils::Misc::findbin($bin);
+		if ($path) {
 			if (my $options = `$path -?`) {
 				# extract descriptions for server address, name, and MAC address
 				while ($options =~ /(^\s+-[smn]\s+.+\n)/mg) {
@@ -86,8 +87,7 @@ sub handler2 {
 			}
 		}
 
-		my $devices = Plugins::LocalPlayer::Squeezelite->devices;
-
+		my $devices = Plugins::LocalPlayer::Squeezelite->devices($path);
 		unshift @$devices, { name => '', desc => "Default" };
 
 		$params->{'devices'} = $devices;
