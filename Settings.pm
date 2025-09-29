@@ -5,8 +5,10 @@ use strict;
 use base qw(Slim::Web::Settings);
 
 use Slim::Utils::Prefs;
+use Slim::Utils::Log;
 
 my $prefs = preferences('plugin.localplayer');
+my $log   = logger('plugin.localplayer');
 
 sub name { 'PLUGIN_LOCALPLAYER' }
 
@@ -78,9 +80,15 @@ sub handler2 {
 		$params->{'running'}  = Plugins::LocalPlayer::Squeezelite->alive;
 
 		my $path = Slim::Utils::Misc::findbin($bin);
+
 		if ($path) {
-			if (my $options = `$path -?`) {
-				# extract descriptions for server address, name, and MAC address
+			my $options = `$path -?`;
+			if ($?) {
+				$log->error("Failed to get squeezelite options - error code: $?");   
+			}
+
+			if ($options) {
+			# extract descriptions for server address, name, and MAC address
 				while ($options =~ /(^\s+-[smn]\s+.+\n)/mg) {
 					$params->{'optionsTable'} .= $1;
 				}
@@ -88,12 +96,14 @@ sub handler2 {
 		}
 
 		my $devices = Plugins::LocalPlayer::Squeezelite->devices($path);
-		unshift @$devices, { name => '', desc => "Default" };
-
+		if ( scalar(@$devices)) {
+			unshift @$devices, { name => '', desc => "Default" };
+		} else {
+			unshift @$devices, { name => '', desc => "No output devices" };
+		}
 		$params->{'devices'} = $devices;
 
 	} else {
-
 		$params->{'running'} = 0;
 	}
 

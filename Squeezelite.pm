@@ -22,6 +22,7 @@ sub binaries {
 	return @binaries if !$update && scalar @binaries;
 
 	my $os = Slim::Utils::OSDetect::details();
+	$log->debug(' OS details;  OS :"'.$os->{'os'} .'"  Arch:"'. $os->{'osArch'}. '"  BinArch:"'. $os->{'binArch'}.'"'); 
 
 	if (main::ISMAC) {
 		@binaries = qw(squeezelite-osx squeezelite-arm64);
@@ -31,13 +32,22 @@ sub binaries {
 		@binaries = qw(squeezelite-x64 squeezelite-win);
 	}
 	elsif ($os->{'os'} eq 'Linux') {
-		if ($os->{'osArch'} =~ /x86_64/) {
+
+# Some Linux OS examples
+# OS :"Linux"  Arch:"aarch64-linux" BinArch:"aarch64-linux"    
+# OS :"Linux"  Arch:"x86_64-linux"  BinArch:"i386-linux"
+# OS :"Linux"  Arch:"armv7l-linux"  BinArch:"armhf-linux"
+
+		if ($os->{'osArch'} =~ /^x86_64/i) {
 			@binaries = qw(squeezelite-x86-64);
 		}
-		if ($os->{'binArch'} =~ /i386/) {
+		elsif ($os->{'binArch'} =~ /^i386/i) {
 			@binaries = qw(squeezelite-i386);
 		}
-		if ($os->{'binArch'} =~ /arm/) {
+		elsif ($os->{'binArch'} =~ /^aarch64/) {
+			@binaries = qw(squeezelite-aarch64);
+		}
+		elsif ($os->{'binArch'} =~ /^arm/) {
 			@binaries = qw(squeezelite-armhf squeezelite-aarch64);
 		}
 		else {
@@ -132,14 +142,17 @@ sub start {
 	eval { $squeezelite = Proc::Background->new({ 'die_upon_destroy' => 1 }, $path, @params); };
 
 	if ($@) {
-
 		$log->warn($@);
-
 	} else {
 		Slim::Utils::Timers::setTimer($class, Time::HiRes::time() + 1, sub {
-			if ($squeezelite && $squeezelite->alive) {
-				$log->debug("$bin running");
-				$binary = $path;
+			if ($squeezelite ) {
+				if ( $squeezelite->alive) {
+					$log->debug("$bin running");
+					$binary = $path;
+				} else {
+					$log->error("Squeezelite has not started or crashed: $bin");
+					$log->error("Enable Squeezelite logging in LocalPlayer Settings and check squeezelite log");
+				}
 			}
 		});
 	}
@@ -173,6 +186,15 @@ sub devices {
 
 	# run "squeezelite -l" to get devices and parse result
 	my @devices = `$myBinary -l`;
+	if ($?) {
+		$log->error("Squeezelite failed to get list of output devices.  Eeror code:". $?);
+		return;
+	}
+
+	if (scalar(@devices) == 0) {
+		$log->error("No output devices found.  Command: $myBinary -l ");
+		return;
+	}
 
 	main::INFOLOG && $log->is_info && $log->info("Getting devices for $myBinary");
 	main::DEBUGLOG && $log->is_debug && $log->debug(@devices);
