@@ -22,21 +22,19 @@ sub binaries {
 	return @binaries if !$update && scalar @binaries;
 
 	my $os = Slim::Utils::OSDetect::details();
-	$log->debug(' OS details;  OS :"'.$os->{'os'} .'"  Arch:"'. $os->{'osArch'}. '"  BinArch:"'. $os->{'binArch'}.'"'); 
+	$log->debug(' OS details;  OS :"'.$os->{'os'} .'"  Arch:"'. $os->{'osArch'}. '"  BinArch:"'. $os->{'binArch'}.'"');
 
 	if (main::ISMAC) {
-		@binaries = qw(squeezelite-osx squeezelite-arm64);
-		@binaries = reverse @binaries if $os->{'osArch'} eq 'arm64';
+		@binaries = qw(squeezelite);
 	}
 	elsif (main::ISWINDOWS) {
 		@binaries = qw(squeezelite-x64 squeezelite-win);
 	}
 	elsif ($os->{'os'} eq 'Linux') {
-
-# Some Linux OS examples
-# OS :"Linux"  Arch:"aarch64-linux" BinArch:"aarch64-linux"    
-# OS :"Linux"  Arch:"x86_64-linux"  BinArch:"i386-linux"
-# OS :"Linux"  Arch:"armv7l-linux"  BinArch:"armhf-linux"
+		# Some Linux OS examples
+		# OS :"Linux"  Arch:"aarch64-linux" BinArch:"aarch64-linux"
+		# OS :"Linux"  Arch:"x86_64-linux"  BinArch:"i386-linux"
+		# OS :"Linux"  Arch:"armv7l-linux"  BinArch:"armhf-linux"
 
 		if ($os->{'osArch'} =~ /^x86_64/i) {
 			@binaries = qw(squeezelite-x86-64);
@@ -187,7 +185,7 @@ sub devices {
 	# run "squeezelite -l" to get devices and parse result
 	my @devices = `$myBinary -l`;
 	if ($?) {
-		$log->error("Squeezelite failed to get list of output devices.  Eeror code:". $?);
+		$log->error("Squeezelite ($myBinary) failed to get list of output devices. Error code:". $?);
 		return;
 	}
 
